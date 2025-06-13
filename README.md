@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王伟 - 金融科技运营专家</title>
+    <title>王伟（云洲） - 金融科技运营专家</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -605,7 +605,7 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <h1>王伟</h1>
-                <h2>金融科技产品运营总监 | 资深运营专家</h2>
+                <h2>互联网产品运营总监 | 资深互金运营专家</h2>
                 <p>互联网金融产品运营总监、前阿里/蚂蚁集团资深产品运营专家、杭州高层次人才。10年+金融科技/O2O电商背景，2家互联网上市公司及一线大厂运营管理经验，拥有体系化的产品运营管理方法论。</p>
                 
                 <div class="contact-badges">
@@ -625,7 +625,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>技能特长</h2>
-                <p>在金融科技领域拥有丰富的产品运营和团队管理经验，擅长用户增长、产品优化和战略规划</p>
+                <p>在金融科技领域拥有丰富的产品运营和项目经验，擅长用户增长、产品运营、团队及项目管理</p>
             </div>
             
             <div class="skills-grid">
@@ -853,7 +853,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <div class="contact-item-content">
                                 <h4>所在地</h4>
-                                <p>杭州 | 金融科技中心</p>
+                                <p>杭州 | 西湖区</p>
                             </div>
                         </div>
                         
@@ -878,7 +878,7 @@
                     <div class="qrcode">
                         <i class="fas fa-qrcode"></i>
                     </div>
-                    <p class="qrcode-label">扫码添加微信或关注公众号</p>
+                    <p class="qrcode-label">个人公众号：shenwansan2008</p>
                 </div>
             </div>
         </div>
@@ -887,7 +887,7 @@
     <!-- 页脚 -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 王伟 - 金融科技运营专家 | 版权所有</p>
+            <p>&copy; 2025 王伟（云洲） | 版权所有</p>
             <p>基于简历信息创建的个人网站 | 设计：现代简约风格</p>
         </div>
     </footer>
