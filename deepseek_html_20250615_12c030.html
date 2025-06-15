@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王伟 - 金融科技运营专家</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 基础样式与变量 */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #1abc9c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: var(--white);
+            padding: 1.5rem;
+            position: relative;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 0;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-title {
+            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+        }
+        
+        .profile-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+        }
+        
+        .qrcode-container {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        
+        .qrcode-img {
+            width: 120px;
+            height: 120px;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+        
+        /* 主体内容样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--accent);
+            font-size: 1.8rem;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 1.2rem 0 0.8rem;
+            font-size: 1.4rem;
+        }
+        
+        /* 教育背景 */
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .education-item:not(:last-child) {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        /* 技能特长 */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
+        }
+        
+        .skill-card:hover {
+            background: #f0f8ff;
+            transform: translateX(5px);
+        }
+        
+        .skill-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-card h4 i {
+            color: var(--accent);
+        }
+        
+        /* 工作经历 */
+        .timeline {
+            position: relative;
+            padding-left: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--secondary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+        
+        .company-logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 1rem;
+            float: left;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+        
+        .job-company {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-period {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .job-description {
+            margin-top: 1rem;
+            color: #555;
+        }
+        
+        .job-description ul {
+            padding-left: 1.5rem;
+        }
+        
+        .job-description li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 项目经历 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .project-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-stats {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* 证书资质 */
+        .certificates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .cert-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .cert-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        /* 联系方式 */
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #e6f7ff, #d1f0ff);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .profile-title {
+                font-size: 1.8rem;
+            }
+            
+            .profile-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .timeline {
+                padding-left: 1.5rem;
+            }
+            
+            .timeline-item:before {
+                left: -23px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .projects-grid,
+            .certificates,
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="profile-container">
+            <img src="https://s21.ax1x.com/2025/06/15/pVAqWF0.jpg" alt="王伟" class="profile-img">
+            <h1 class="profile-title">王伟</h1>
+            <p class="profile-subtitle">金融科技运营总监 / 资深产品运营专家</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>18557519167</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>shenwansan2008@163.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>杭州 · 中共党员</span>
+                </div>
+            </div>
+            
+            <div class="qrcode-container">
+                <p>关注公众号</p>
+                <img src="https://s21.ax1x.com/2025/06/15/pVAvMvT.png" alt="公众号二维码" class="qrcode-img">
+                <p>云洲说yunzhoushuo</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体内容 -->
+    <div class="container">
+        <!-- 教育背景 -->
+        <section id="education">
+            <h2><i class="fas fa-graduation-cap"></i> 教育背景</h2>
+            
+            <div class="education-item">
+                <h3>南京大学（985）</h3>
+                <p><strong>信息管理学院 - 数字出版专业 | 硕士</strong></p>
+                <p class="job-period">2011.09 - 2014.06</p>
+                <p>班长/研会主席，2013国家奖学金，优秀毕业生</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>安徽大学（211）</h3>
+                <p><strong>汉语言文学（辅修工商管理） | 本科</strong></p>
+                <p class="job-period">2003.10 - 2007.06</p>
+                <p>学生会部长，安大优秀毕业生</p>
+            </div>
+        </section>
+
+        <!-- 技能特长 -->
+        <section id="skills">
+            <h2><i class="fas fa-laptop-code"></i> 技能特长</h2>
+            
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h4><i class="fas fa-users"></i> 用户运营</h4>
+                    <p>亿级用户体量平台运营经验，擅长用户生命周期管理、业务转化漏斗分析、用户分层运营、活动策划、数据运营、精准营销等。曾实现平台用户年增300%+，单次营销活动带来25亿+信贷支用金额。</p>
+                </div>
+                
+                <div class="skill-card">
+                    <h4><i class="fas fa-mobile-alt"></i> 产品运营</h4>
+                    <p>精通APP迭代、活动运营、流量投放、数据看板及营销工具产品运营。熟练使用Axure、XMind、ProcessOn及Python、SQL、Excel等BI工具。曾通过创新将拉新成本降至1.2元/人。</p>
+                </div>
+                
+                <div class="skill-card">
+                    <h4><i class="fas fa-chart-line"></i> 内容/流量运营</h4>
+                    <p>擅长流量精细化运营、渠道投放、新媒体运营等，精通主流数字营销系统及工具。专栏作家（人人都是产品经理、PM-talk），专栏名"云洲说"。</p>
+                </div>
+                
+                <div class="skill-card">
+                    <h4><i class="fas fa-tasks"></i> 项目及团队管理</h4>
+                    <p>具备中型项目及团队管理能力，擅长拆解业务策略及团队分工，统筹风控/产品/法务/技术/设计/客服团队。有算法模型、AI赋能互金业务及银行合规改造项目实战经验。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工作经历 -->
+        <section id="experience">
+            <h2><i class="fas fa-briefcase"></i> 工作经历</h2>
+            
+            <div class="timeline">
+                <!-- 苏宁银行 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div class="job-title">产品运营总监</div>
+                        <div class="job-company">苏宁银行 · 普惠金融客群运营部</div>
+                        <div class="job-period">2024年7月 - 2025年2月</div>
+                    </div>
+                    
+                    <div class="job-description">
+                        <p><strong>产品及业务目标：</strong>小微客群互联网信贷业务，核心KPI为信贷业务规模、用户数及活跃度</p>
+                        <ul>
+                            <li>负责搭建运营团队及用户增长体系，制订团队业务指标</li>
+                            <li>跨部门组建全行层面的互联网运营项目组</li>
+                            <li>搭建体系化的运营管户策略，统筹运用公域/私域/外部流量</li>
+                            <li>达成24年放款目标177.5亿元，授信新客逆势增长15%+</li>
+                            <li>公众号综合排名跻身行业TOP5，粉丝数实现200%+增长</li>
+                            <li>主导AI工具应用提效、智能外呼机器人接入</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 蚂蚁集团/阿里巴巴 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div class="job-title">产品运营专家</div>
+                        <div class="job-company">蚂蚁集团/阿里巴巴 · 网商银行/本地生活</div>
+                        <div class="job-period">2020年1月 - 2024年5月</div>
+                    </div>
+                    
+                    <div class="job-description">
+                        <p><strong>产品及业务目标：</strong>互金产品及O2O本地电商运营，聚焦用户数及业务量增长</p>
+                        <ul>
+                            <li>负责本地生活O2O业务运营（C端用户运营和B端SAAS运营）</li>
+                            <li>负责信贷产品客群线上运营（小微、电商、三农客户）</li>
+                            <li>独立策划各类型业务营销活动，如春耕节/丰收节、支付宝集五福等</li>
+                            <li>网商银行2021丰收节单场活动促成8w+客户信贷支用25亿+</li>
+                            <li>构建完善客户画像及业务工具体系</li>
+                            <li>获网商银行2022年优秀员工称号</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 51信用卡 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div class="job-title">产品运营经理</div>
+                        <div class="job-company">51信用卡 · 理财业务部</div>
+                        <div class="job-period">2017年4月 - 2019年12月</div>
+                    </div>
+                    
+                    <div class="job-description">
+                        <p><strong>产品及业务目标：</strong>To C个人理财类产品，核心KPI为APP用户及资金营收规模增长</p>
+                        <ul>
+                            <li>构建体系化的生命周期运营体系</li>
+                            <li>推动产品/技术团队开发上线多项运营工具</li>
+                            <li>独立策划"51信用卡五周年庆"活动，带来5.5亿元净充值资金</li>
+                            <li>2017年超额完成年度指标，核心用户增长320%+</li>
+                            <li>开展机构异业合作，接入多家银行理财产品</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 东方财富 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div class="job-title">用户运营/营销策划</div>
+                        <div class="job-company">东方财富 · 个人产品部</div>
+                        <div class="job-period">2014年7月 - 2017年4月</div>
+                    </div>
+                    
+                    <div class="job-description">
+                        <p><strong>产品及业务目标：</strong>财经资讯及证券交易服务，核心目标为APP注册用户及证券开户数增长</p>
+                        <ul>
+                            <li>制订用户增长运营计划，策划项目/活动方案</li>
+                            <li>策划上线30+项目/活动，如东方财富实盘炒股大赛</li>
+                            <li>新开户数实现+11.93%月度增长率</li>
+                            <li>输出产品需求文档182次，推动开发/迭代活动/产品页面≥100次</li>
+                            <li>实时关注行业动态跟踪竞品动向</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目经历 -->
+        <section id="projects">
+            <h2><i class="fas fa-project-diagram"></i> 项目经历</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">网商银行2021丰收节</h3>
+                        <p>针对性策划节点营销活动，借助支付宝流量触达客户</p>
+                        <div class="project-stats">
+                            <span class="stat-item">8万+客户</span>
+                            <span class="stat-item">25亿+支用</span>
+                        </div>
+                        <p><strong>成果：</strong>单次大促转化8w+客户支用超25亿元</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">支付宝＆KFC联名会员</h3>
+                        <p>通过阿里巴巴-本地生活CRM精准营销运营</p>
+                        <div class="project-stats">
+                            <span class="stat-item">精准营销</span>
+                            <span class="stat-item">会员转化</span>
+                        </div>
+                        <p><strong>成果：</strong>单日为支付宝＆KFC联名会员转化新客50000+</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">全国县域评级模型</h3>
+                        <p>基于支付宝及外部区域/行业/用户数据训练模型</p>
+                        <div class="project-stats">
+                            <span class="stat-item">算法模型</span>
+                            <span class="stat-item">金融风控</span>
+                        </div>
+                        <p><strong>成果：</strong>实现全国县域中宏观评级，业务增益120亿+</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">51人品专家</h3>
+                        <p>通过用户MGM分享裂变机制设计构建用户增长裂变模块</p>
+                        <div class="project-stats">
+                            <span class="stat-item">用户裂变</span>
+                            <span class="stat-item">增长黑客</span>
+                        </div>
+                        <p><strong>成果：</strong>全年贡献33%+的平台新用户</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 证书资质 -->
+        <section id="certificates">
+            <h2><i class="fas fa-certificate"></i> 证书资质</h2>
+            
+            <div class="certificates">
+                <div class="cert-card">
+                    <div class="cert-title">金融相关资质</div>
+                    <ul>
+                        <li>基金从业资格</li>
+                        <li>证券从业资格</li>
+                        <li>银行中级从业资格</li>
+                        <li>中级经济师（金融）</li>
+                        <li>腾讯课堂"互金产品设计提升班"认证</li>
+                    </ul>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-title">互联网相关</div>
+                    <ul>
+                        <li>PCEP国际Python程序员认证</li>
+                        <li>CAIP人工智能职场应用师</li>
+                        <li>C语言二级</li>
+                        <li>网络编辑二级</li>
+                        <li>人人都是产品经理社区-专栏作家</li>
+                    </ul>
+                </div>
+                
+                <div class="cert-card">
+                    <div class="cert-title">发明专利</div>
+                    <p><strong>个体属性挂载及群体属性分层大数据授信应用装置</strong></p>
+                    <p>金融风控领域，专利号CN117709963A</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系方式 -->
+        <section id="contact">
+            <h2><i class="fas fa-envelope"></i> 联系方式</h2>
+            
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>电话</h3>
+                    <p>18557519167</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>邮箱</h3>
+                    <p>shenwansan2008@163.com</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-weixin"></i>
+                    </div>
+                    <h3>微信公众号</h3>
+                    <p>云洲说yunzhoushuo</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>所在地</h3>
+                    <p>浙江省杭州市</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2025 王伟 - 金融科技运营专家 | 杭州高层次人才</p>
+        <p>感谢您的关注，期待与您合作！</p>
+    </footer>
+</body>
+</html>
