@@ -5,726 +5,1410 @@
     <title>王伟（云洲）- 金融科技运营专家</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* 基础样式与变量 */
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #1abc9c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gray: #7f8c8d;
-            --white: #ffffff;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --primary: #1a3a6c;
+            --secondary: #0f5a8c;
+            --accent: #00c1d4;
+            --light: #f5f8fa;
+            --dark: #0a1a2a;
+            --gray: #6c757d;
+            --success: #28a745;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
         
         body {
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
+            background-color: #f0f5f9;
             color: #333;
-            background-color: var(--light);
-            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         /* 头部样式 */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: var(--white);
-            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0 40px;
             position: relative;
-            text-align: center;
-            box-shadow: var(--shadow);
+            overflow: hidden;
         }
         
-        .profile-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 193, 212, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 193, 212, 0.1) 0%, transparent 20%);
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem 0;
+            text-align: center;
         }
         
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 5px solid var(--white);
+            border: 5px solid rgba(255, 255, 255, 0.3);
             object-fit: cover;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
-        .profile-title {
-            margin-bottom: 0.5rem;
-            font-size: 2.2rem;
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
         
-        .profile-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .header-text h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
             color: var(--accent);
-            font-weight: 500;
         }
         
         .contact-info {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
-            margin: 1rem 0;
+            gap: 20px;
+            margin-top: 15px;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
+            font-size: 1.05rem;
         }
         
         .contact-item i {
             color: var(--accent);
         }
         
-        .qrcode-container {
-            margin-top: 1.5rem;
-            text-align: center;
+        /* 导航样式 */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
-        .qrcode-img {
-            width: 120px;
-            height: 120px;
-            background: var(--white);
-            padding: 0.5rem;
-            border-radius: 8px;
+        .nav-container {
+            display: flex;
+            justify-content: center;
         }
         
-        /* 主体内容样式 */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+        .nav-links {
+            display: flex;
+            list-style: none;
         }
         
-        section {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-        
-        h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 3px solid var(--accent);
-            font-size: 1.8rem;
+        .nav-links li a {
+            display: block;
+            padding: 20px 25px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
             position: relative;
         }
         
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: var(--secondary);
+        .nav-links li a:hover {
+            color: var(--primary);
         }
         
-        h3 {
-            color: var(--secondary);
-            margin: 1.2rem 0 0.8rem;
-            font-size: 1.4rem;
+        .nav-links li a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 80%;
+        }
+        
+        /* 内容区域样式 */
+        section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-header h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 15px auto 0;
+            font-size: 1.1rem;
         }
         
         /* 教育背景 */
-        .education-item {
-            margin-bottom: 1.5rem;
+        .education-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
-        .education-item:not(:last-child) {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 1.5rem;
+        .education-item {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            flex: 1;
+            min-width: 300px;
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .edu-school {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .edu-badge {
+            background: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .edu-details {
+            margin-bottom: 15px;
+        }
+        
+        .edu-major {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .edu-time {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .edu-achievements {
+            margin-top: 15px;
+        }
+        
+        .edu-achievements li {
+            margin-bottom: 8px;
+            list-style-type: none;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .edu-achievements li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
         
         /* 技能特长 */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        .skill-card {
-            background: #f9f9f9;
-            border-radius: 8px;
-            padding: 1.5rem;
-            border-left: 4px solid var(--accent);
-            transition: var(--transition);
+        .skill-category {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            transition: transform 0.3s ease;
         }
         
-        .skill-card:hover {
-            background: #f0f8ff;
-            transform: translateX(5px);
+        .skill-category:hover {
+            transform: translateY(-5px);
         }
         
-        .skill-card h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+        .skill-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            margin-bottom: 20px;
         }
         
-        .skill-card h4 i {
-            color: var(--accent);
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .skill-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .skill-items {
+            padding-left: 10px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .skill-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
         }
         
         /* 工作经历 */
         .timeline {
             position: relative;
-            padding-left: 2.5rem;
-            margin: 2rem 0;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
-        .timeline:before {
-            content: '';
+        .timeline::before {
+            content: "";
             position: absolute;
-            left: 7px;
             top: 0;
             bottom: 0;
-            width: 3px;
-            background: var(--secondary);
+            left: 50%;
+            width: 4px;
+            background: var(--accent);
+            transform: translateX(-50%);
         }
         
         .timeline-item {
             position: relative;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: #f9f9f9;
-            border-radius: 8px;
-            border-left: 3px solid var(--accent);
+            margin-bottom: 50px;
+            width: 100%;
         }
         
-        .timeline-item:before {
-            content: '';
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            padding-left: 75px;
+            padding-right: 0;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            padding-right: 75px;
+        }
+        
+        .timeline-content {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            position: relative;
+            width: calc(50% - 40px);
+        }
+        
+        .timeline-content::before {
+            content: "";
             position: absolute;
-            left: -30px;
-            top: 20px;
-            width: 16px;
-            height: 16px;
+            top: 40px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             background: var(--accent);
-            border: 3px solid var(--white);
-            box-shadow: 0 0 0 3px var(--secondary);
+            border: 4px solid white;
         }
         
-        .company-logo {
-            width: 40px;
-            height: 40px;
-            margin-right: 1rem;
-            float: left;
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -10px;
         }
         
-        .job-title {
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.3rem;
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: -10px;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
         }
         
         .job-company {
-            color: var(--secondary);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
         }
         
         .job-period {
             color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-weight: 500;
         }
         
-        .job-description {
-            margin-top: 1rem;
-            color: #555;
+        .job-position {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 15px;
         }
         
-        .job-description ul {
-            padding-left: 1.5rem;
+        .job-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
         }
         
-        .job-description li {
-            margin-bottom: 0.5rem;
+        .job-responsibilities h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .job-responsibilities ul {
+            padding-left: 20px;
+        }
+        
+        .job-responsibilities li {
+            margin-bottom: 10px;
         }
         
         /* 项目经历 */
-        .projects-grid {
+        .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .project-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            transition: var(--transition);
+            transition: transform 0.3s ease;
         }
         
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-10px);
         }
         
-        .project-content {
-            padding: 1.5rem;
+        .project-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
         }
         
         .project-title {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .project-category {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .project-body {
+            padding: 25px;
         }
         
         .project-stats {
             display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+            text-align: center;
         }
         
-        .stat-item {
-            background: var(--accent);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+        .stat-item h4 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+        
+        .stat-item p {
+            color: var(--gray);
             font-size: 0.9rem;
         }
         
-        /* 证书资质 */
-        .certificates {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .cert-card {
-            background: #f9f9f9;
-            border-radius: 8px;
-            padding: 1.5rem;
-            border-left: 4px solid var(--secondary);
-        }
-        
-        .cert-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .project-desc {
+            margin-bottom: 20px;
             color: var(--dark);
         }
         
-        /* 联系方式 */
-        .contact-methods {
+        /* 证书资质 */
+        .certificates-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
-        .contact-card {
-            text-align: center;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
-            border-radius: 8px;
-            transition: var(--transition);
+        .cert-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.3s ease;
         }
         
-        .contact-card:hover {
+        .cert-card:hover {
             transform: translateY(-5px);
-            background: linear-gradient(135deg, #e6f7ff, #d1f0ff);
+        }
+        
+        .cert-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .cert-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .cert-list {
+            padding-left: 20px;
+        }
+        
+        .cert-list li {
+            margin-bottom: 8px;
+        }
+        
+        /* 联系方式 */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .contact-info-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .contact-methods {
+            margin-bottom: 30px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            background: rgba(0, 193, 212, 0.1);
         }
         
         .contact-icon {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .contact-details p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--gray);
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .qr-code img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 193, 212, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn i {
+            margin-right: 8px;
         }
         
         /* 页脚 */
         footer {
             background: var(--dark);
-            color: var(--white);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 40px 0;
             text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
         }
         
         /* 响应式设计 */
-        @media (max-width: 768px) {
-            .profile-title {
-                font-size: 1.8rem;
+        @media (max-width: 992px) {
+            .timeline::before {
+                left: 20px;
             }
             
-            .profile-subtitle {
-                font-size: 1.1rem;
+            .timeline-content {
+                width: calc(100% - 70px);
+                margin-left: 70px !important;
+                padding: 20px !important;
             }
             
-            .contact-info {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-            
-            section {
-                padding: 1.5rem;
-            }
-            
-            .timeline {
-                padding-left: 1.5rem;
-            }
-            
-            .timeline-item:before {
-                left: -23px;
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -10px;
+                right: auto;
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li a {
+                padding: 15px;
+            }
+            
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            
+            .header-text h2 {
+                font-size: 1.3rem;
+            }
+            
+            .contact-item {
+                font-size: 0.95rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .education-item,
+            .skill-category,
+            .project-card,
+            .cert-card {
+                min-width: 100%;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
             .profile-img {
                 width: 120px;
                 height: 120px;
             }
             
-            h2 {
-                font-size: 1.5rem;
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
             }
             
-            .projects-grid,
-            .certificates,
-            .contact-methods {
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .projects-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .stat-item h4 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 头部区域 -->
+    <!-- 头部 -->
     <header>
-        <div class="profile-container">
-            <img src="https://s21.ax1x.com/2025/06/15/pVAqWF0.jpg" alt="王伟" class="profile-img">
-            <h1 class="profile-title">王伟</h1>
-            <p class="profile-subtitle">金融科技运营总监/资深产品运营专家</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>18557519167</span>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://s21.ax1x.com/2025/06/15/pVAqWF0.jpg" alt="王伟" class="profile-img">
+                <div class="header-text">
+                    <h1>王伟</h1>
+                    <h2>互联网金融产品运营总监 | 资深产品运营专家</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>185-5751-9167</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>shenwansan2008@163.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>浙江 · 杭州</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-user-tie"></i>
+                            <span>中共党员 | 杭州高层次人才</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>shenwansan2008@163.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>浙江 · 杭州</span>
-                </div>
-            </div>
-            
-            <div class="qrcode-container">
-                <p>关注公众号</p>
-                <img src="https://s21.ax1x.com/2025/06/15/pVAx8Qf.jpg" alt="公众号二维码" class="qrcode-img">
-                <p>云洲说</p>
             </div>
         </div>
     </header>
 
-    <!-- 主体内容 -->
-    <div class="container">
-        <!-- 教育背景 -->
-        <section id="education">
-            <h2><i class="fas fa-graduation-cap"></i> 教育背景</h2>
-            
-            <div class="education-item">
-                <h3>南京大学（985）</h3>
-                <p><strong>信息管理学院 - 数字出版专业 | 硕士</strong></p>
-                <p class="job-period">2011.09 - 2014.06</p>
-                <p>班长/研会主席，2013国家奖学金，优秀毕业生</p>
+    <!-- 导航 -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#education" class="active">教育背景</a></li>
+                    <li><a href="#skills">技能特长</a></li>
+                    <li><a href="#experience">工作经历</a></li>
+                    <li><a href="#projects">项目经历</a></li>
+                    <li><a href="#certificates">证书资质</a></li>
+                    <li><a href="#contact">联系方式</a></li>
+                </ul>
             </div>
-            
-            <div class="education-item">
-                <h3>安徽大学（211）</h3>
-                <p><strong>汉语言文学（辅修工商管理） | 本科</strong></p>
-                <p class="job-period">2003.10 - 2007.06</p>
-                <p>学生会部长，安大优秀毕业生</p>
-            </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- 技能特长 -->
-        <section id="skills">
-            <h2><i class="fas fa-laptop-code"></i> 技能特长</h2>
-            
+    <!-- 教育背景 -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header">
+                <h2>教育背景</h2>
+                <p>丰富的学术经历与专业背景，为职业发展奠定坚实基础</p>
+            </div>
+            <div class="education-container">
+                <div class="education-item">
+                    <div class="edu-header">
+                        <div class="edu-school">南京大学</div>
+                        <div class="edu-badge">985高校</div>
+                    </div>
+                    <div class="edu-details">
+                        <div class="edu-major">信息管理学院 · 数字出版专业</div>
+                        <div class="edu-time">2011.09 - 2014.06</div>
+                    </div>
+                    <div class="edu-achievements">
+                        <ul>
+                            <li>担任班长/研究生会主席</li>
+                            <li>2013年获得国家奖学金</li>
+                            <li>优秀毕业生</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="edu-header">
+                        <div class="edu-school">安徽大学</div>
+                        <div class="edu-badge">211高校</div>
+                    </div>
+                    <div class="edu-details">
+                        <div class="edu-major">汉语言文学（辅修工商管理）</div>
+                        <div class="edu-time">2003.10 - 2007.06</div>
+                    </div>
+                    <div class="edu-achievements">
+                        <ul>
+                            <li>担任学生会部长</li>
+                            <li>安徽大学优秀毕业生</li>
+                            <li>双专业背景培养复合能力</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能特长 -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>技能特长</h2>
+                <p>10年+金融科技行业经验，构建全面运营能力体系</p>
+            </div>
             <div class="skills-container">
-                <div class="skill-card">
-                    <h4><i class="fas fa-users"></i> 用户运营</h4>
-                    <p>亿级用户体量平台运营经验，擅长用户生命周期管理、业务转化漏斗分析、用户分层运营、活动策划、数据运营、精准营销等。曾实现平台用户年增300%+，单次营销活动带来25亿+信贷支用金额。</p>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="skill-title">用户运营</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            亿级用户平台运营经验，精通用户生命周期管理
+                        </div>
+                        <div class="skill-item">
+                            擅长用户分层运营、活动策划及运营、数据运营
+                        </div>
+                        <div class="skill-item">
+                            精准营销触达，提升拉新、促活、GMV转化指标
+                        </div>
+                        <div class="skill-item">
+                            服务客群覆盖C类、B类小微及行业KA大客户
+                        </div>
+                        <div class="skill-item">
+                            曾实现平台用户年增300%+，单次活动带来25亿+信贷支用
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="skill-card">
-                    <h4><i class="fas fa-mobile-alt"></i> 产品运营</h4>
-                    <p>精通APP迭代、活动运营、流量投放、数据看板及营销工具产品运营。熟练使用Axure、XMind、ProcessOn及Python、SQL、Excel等BI工具。蚂蚁集团任职期间，曾通过营销工具创新将拉新成本降低80%。</p>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="skill-title">产品运营</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            精通APP迭代/活动运营/流量投放/数据看板/标签及营销工具
+                        </div>
+                        <div class="skill-item">
+                            熟练使用Axure、XMind、ProcessOn等产品工具
+                        </div>
+                        <div class="skill-item">
+                            掌握Python、SQL、Excel等BI工具进行数据分析
+                        </div>
+                        <div class="skill-item">
+                            具备优秀用户洞察和需求策划能力
+                        </div>
+                        <div class="skill-item">
+                            曾通过工具创新使新客授权转化成本降低80%
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="skill-card">
-                    <h4><i class="fas fa-chart-line"></i> 内容/流量运营</h4>
-                    <p>擅长流量精细化运营、渠道投放、新媒体运营等，精通主流数字营销系统及工具。人人都是产品经理、PM-talk专栏作家，专栏名"云洲说"。</p>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="skill-title">内容/流量运营</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            擅长流量精细化运营、渠道投放、新媒体运营
+                        </div>
+                        <div class="skill-item">
+                            精通主流数字营销系统及工具
+                        </div>
+                        <div class="skill-item">
+                            善于结合用户画像及平台特性策划优质内容
+                        </div>
+                        <div class="skill-item">
+                            综合运用公私域流量提升用户量及品牌影响力
+                        </div>
+                        <div class="skill-item">
+                            人人都是产品经理、PM-talk专栏作家（专栏"云洲说"）
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="skill-card">
-                    <h4><i class="fas fa-tasks"></i> 项目及团队管理</h4>
-                    <p>具备中型项目及团队管理能力，擅长拆解业务策略及团队分工，统筹风控/产品/法务/技术/设计/客服团队。有算法模型、AI赋能互金业务及银行合规改造项目实战经验。</p>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="skill-title">项目及团队管理</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            具备中型项目及团队管理能力
+                        </div>
+                        <div class="skill-item">
+                            擅长拆解业务策略及团队分工
+                        </div>
+                        <div class="skill-item">
+                            统筹风控/产品/法务/技术/设计/客服团队推进项目落地
+                        </div>
+                        <div class="skill-item">
+                            丰富项目经验：从0到1及从1到100
+                        </div>
+                        <div class="skill-item">
+                            算法模型、AI赋能互金业务及银行合规改造项目实战经验
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 工作经历 -->
-        <section id="experience">
-            <h2><i class="fas fa-briefcase"></i> 工作经历</h2>
-            
+    <!-- 工作经历 -->
+    <section id="experience" style="background-color: #f0f7fb;">
+        <div class="container">
+            <div class="section-header">
+                <h2>工作经历</h2>
+                <p>丰富的互金/电商行业经验，从一线大厂到行业龙头公司</p>
+            </div>
             <div class="timeline">
-                <!-- 苏宁银行 -->
                 <div class="timeline-item">
-                    <div class="job-header">
-                        <div class="job-title">运营总监</div>
-                        <div class="job-company">苏宁银行 · 普惠金融客群运营部</div>
-                        <div class="job-period">2024年7月 - 2025年2月</div>
-                    </div>
-                    
-                    <div class="job-description">
-                        <p><strong>产品及业务目标：</strong>小微客群互联网信贷业务，核心KPI为信贷业务规模、用户数及活跃度</p>
-                        <ul>
-                            <li>负责搭建运营团队及用户增长体系，制订团队业务指标</li>
-                            <li>跨部门组建全行层面的互联网运营项目组</li>
-                            <li>搭建体系化的运营管户策略，统筹运用公域/私域/外部流量</li>
-                            <li>达成24年放款目标177.5亿元，授信新客逆势增长15%+</li>
-                            <li>公众号综合排名跻身行业TOP5，粉丝数实现200%+增长</li>
-                            <li>主导AI工具应用提效、智能外呼机器人接入</li>
-                        </ul>
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <div class="job-company">苏宁银行</div>
+                            <div class="job-period">2024.07 - 2025.02</div>
+                        </div>
+                        <div class="job-position">普惠金融客群运营部 · 产品运营总监</div>
+                        <div class="job-desc">小微客群互联网信贷业务，核心KPI为信贷业务规模、用户数及活跃度（汇报对象：董事长、副行）</div>
+                        <div class="job-responsibilities">
+                            <h3>核心职责与成就：</h3>
+                            <ul>
+                                <li>担任普惠金融部运营总监，负责搭建运营团队及用户增长体系</li>
+                                <li>跨部门组建全行层面的互联网运营项目组，从APP运营/新媒体运营/用户运营/系统工具四大方面提升运营水平</li>
+                                <li>搭建体系化运营管户策略，达成24年放款目标177.5亿元，授信新客逆势增长15%+，不良率仅1.32%</li>
+                                <li>从0到1构建全行小微客群新媒体运营阵地，公众号综合排名跻身行业TOP5，粉丝数实现200%+增长</li>
+                                <li>协同推进CRM/APP/标签体系/数据看板开发，主导AI工具应用提效，推进与字节跳动的联合建模信贷产品创新</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- 蚂蚁集团/阿里巴巴 -->
                 <div class="timeline-item">
-                    <div class="job-header">
-                        <div class="job-title">产品运营专家</div>
-                        <div class="job-company">蚂蚁集团/阿里巴巴 · 网商银行/本地生活</div>
-                        <div class="job-period">2020年1月 - 2024年5月</div>
-                    </div>
-                    
-                    <div class="job-description">
-                        <p><strong>产品及业务目标：</strong>互金产品及O2O本地电商运营，聚焦用户数及业务量增长</p>
-                        <ul>
-                            <li>负责本地生活O2O业务运营（C端用户运营和B端SAAS运营）</li>
-                            <li>负责信贷产品客群线上运营（小微、电商、三农客户）</li>
-                            <li>独立策划各类型业务营销活动，如春耕节/丰收节、支付宝集五福等</li>
-                            <li>网商银行2021丰收节单场活动促成8w+客户信贷支用25亿+</li>
-                            <li>构建完善客户画像及业务工具体系</li>
-                            <li>获网商银行2022年优秀员工称号</li>
-                        </ul>
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <div class="job-company">蚂蚁集团/阿里巴巴</div>
+                            <div class="job-period">2020.01 - 2024.05</div>
+                        </div>
+                        <div class="job-position">网商银行/本地生活 · 产品运营专家</div>
+                        <div class="job-desc">互金产品及O2O本地电商运营，聚焦用户数及业务量增长（汇报对象：行长、业务线负责人）</div>
+                        <div class="job-responsibilities">
+                            <h3>核心职责与成就：</h3>
+                            <ul>
+                                <li>负责本地生活O2O业务运营，基于用户分层进行精准人群构建与营销转化</li>
+                                <li>行业SAAS运营：链接B端商家与C端用户，助力商家会员及销售GMV增长</li>
+                                <li>信贷产品客群线上运营：统筹制定客群精细化运营策略，2022-2023连续两年达成业务目标</li>
+                                <li>策划支付宝集五福/双11大促网商银行分会场等活动，单场活动促成8w+客户信贷支用25亿+</li>
+                                <li>构建完善客户画像及业务工具体系，协同法务团队完成信贷产品合规改造</li>
+                                <li>获网商银行2022年优秀员工称号</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- 51信用卡 -->
                 <div class="timeline-item">
-                    <div class="job-header">
-                        <div class="job-title">产品运营经理</div>
-                        <div class="job-company">51信用卡 · 理财业务部</div>
-                        <div class="job-period">2017年4月 - 2019年12月</div>
-                    </div>
-                    
-                    <div class="job-description">
-                        <p><strong>产品及业务目标：</strong>To C个人理财类产品，核心KPI为APP用户及资金营收规模增长</p>
-                        <ul>
-                            <li>构建体系化的生命周期运营体系</li>
-                            <li>推动产品/技术团队开发上线多项运营工具</li>
-                            <li>独立策划"51信用卡五周年庆"活动，带来5.5亿元净充值资金</li>
-                            <li>2017年超额完成年度指标，核心用户增长320%+</li>
-                            <li>开展机构异业合作，接入多家银行理财产品</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- 东方财富 -->
-                <div class="timeline-item">
-                    <div class="job-header">
-                        <div class="job-title">用户运营/营销策划</div>
-                        <div class="job-company">东方财富 · 个人产品部</div>
-                        <div class="job-period">2014年7月 - 2017年4月</div>
-                    </div>
-                    
-                    <div class="job-description">
-                        <p><strong>产品及业务目标：</strong>财经资讯及证券交易服务，核心目标为APP注册用户及证券开户数增长</p>
-                        <ul>
-                            <li>制订用户增长运营计划，策划项目/活动方案</li>
-                            <li>策划上线30+项目/活动，如东方财富实盘炒股大赛</li>
-                            <li>新开户数实现+11.93%月度增长率</li>
-                            <li>输出产品需求文档182次，推动开发/迭代活动/产品页面≥100次</li>
-                            <li>实时关注行业动态跟踪竞品动向</li>
-                        </ul>
+                    <div class="timeline-content">
+                        <div class="job-header">
+                            <div class="job-company">51信用卡</div>
+                            <div class="job-period">2017.04 - 2019.12</div>
+                        </div>
+                        <div class="job-position">理财业务部 · 产品运营经理</div>
+                        <div class="job-desc">To C个人理财类产品，核心KPI为APP用户及资金营收规模增长（汇报对象：业务线负责人）</div>
+                        <div class="job-responsibilities">
+                            <h3>核心职责与成就：</h3>
+                            <ul>
+                                <li>构建体系化的生命周期运营体系：新手链路、用户成长、老带新裂变、流失用户召回</li>
+                                <li>推动开发多项运营工具，构建数据报表＆业务增长模型，通过数据运营驱动业务增长</li>
+                                <li>构建活动运营矩阵，策划"51信用卡五周年庆"大型活动，带来5.5亿元净充值资金</li>
+                                <li>统筹搭建理财用户增长运营体系，2017年超额完成年度指标，核心用户增长320%+</li>
+                                <li>开展机构异业合作，接入平安、百信等10多家机构理财产品</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 项目经历 -->
-        <section id="projects">
-            <h2><i class="fas fa-project-diagram"></i> 项目经历</h2>
-            
-            <div class="projects-grid">
+    <!-- 项目经历 -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>项目经历</h2>
+                <p>代表性项目案例，展示专业能力与实战成果</p>
+            </div>
+            <div class="projects-container">
                 <div class="project-card">
-                    <div class="project-content">
+                    <div class="project-header">
                         <h3 class="project-title">网商银行2021丰收节</h3>
-                        <p>针对性策划节点营销活动，借助支付宝流量触达客户</p>
+                        <div class="project-category">活动运营 · 支付宝生态</div>
+                    </div>
+                    <div class="project-body">
                         <div class="project-stats">
-                            <span class="stat-item">8万+客户</span>
-                            <span class="stat-item">25亿+支用</span>
+                            <div class="stat-item">
+                                <h4>25亿+</h4>
+                                <p>信贷支用金额</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>8万+</h4>
+                                <p>客户转化</p>
+                            </div>
                         </div>
-                        <p><strong>成果：</strong>单次大促转化8w+客户支用超25亿元</p>
+                        <p class="project-desc">
+                            针对性策划节点营销活动，借助支付宝流量触达客户，通过免息贷款/利率优惠券/支付宝红包等权益工具促成客户转化。
+                        </p>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">支付宝＆KFC联名会员</h3>
-                        <p>通过阿里巴巴-本地生活CRM精准营销运营</p>
-                        <div class="project-stats">
-                            <span class="stat-item">精准营销</span>
-                            <span class="stat-item">会员转化</span>
-                        </div>
-                        <p><strong>成果：</strong>单日为支付宝＆KFC联名会员转化新客50000+</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-content">
+                    <div class="project-header">
                         <h3 class="project-title">全国县域评级模型</h3>
-                        <p>基于支付宝及外部区域/行业/用户数据训练模型</p>
+                        <div class="project-category">模型算法 · 金融风控</div>
+                    </div>
+                    <div class="project-body">
                         <div class="project-stats">
-                            <span class="stat-item">算法模型</span>
-                            <span class="stat-item">金融风控</span>
+                            <div class="stat-item">
+                                <h4>120亿+</h4>
+                                <p>业务增益</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>AI</h4>
+                                <p>赋能金融</p>
+                            </div>
                         </div>
-                        <p><strong>成果：</strong>实现全国县域中宏观评级，业务增益120亿+</p>
+                        <p class="project-desc">
+                            基于支付宝及外部区域/行业/用户数据训练模型，实现全国县域中宏观评级，为信贷决策提供数据支持。
+                        </p>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">51人品专家</h3>
-                        <p>通过用户MGM分享裂变机制设计构建用户增长裂变模块</p>
+                    <div class="project-header">
+                        <h3 class="project-title">支付宝＆KFC联名会员</h3>
+                        <div class="project-category">精准营销 · 品牌合作</div>
+                    </div>
+                    <div class="project-body">
                         <div class="project-stats">
-                            <span class="stat-item">用户裂变</span>
-                            <span class="stat-item">增长黑客</span>
+                            <div class="stat-item">
+                                <h4>5万+</h4>
+                                <p>单日新客转化</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>头部企业</h4>
+                                <p>KFC/星巴克</p>
+                            </div>
                         </div>
-                        <p><strong>成果：</strong>全年贡献33%+的平台新用户</p>
+                        <p class="project-desc">
+                            通过阿里巴巴-本地生活CRM精准营销运营，链接B端头部品牌与C端用户，实现高效会员转化。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">51人品专家</h3>
+                        <div class="project-category">用户增长 · 裂变机制</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <h4>33%+</h4>
+                                <p>平台新用户占比</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>裂变</h4>
+                                <p>MGM机制</p>
+                            </div>
+                        </div>
+                        <p class="project-desc">
+                            通过用户MGM分享裂变机制设计，从0到1构建用户增长裂变模块，成为平台核心用户增长渠道。
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 证书资质 -->
-        <section id="certificates">
-            <h2><i class="fas fa-certificate"></i> 证书资质</h2>
-            
-            <div class="certificates">
+    <!-- 证书资质 -->
+    <section id="certificates" style="background-color: #f0f7fb;">
+        <div class="container">
+            <div class="section-header">
+                <h2>证书资质</h2>
+                <p>专业资质认证，持续学习与能力提升</p>
+            </div>
+            <div class="certificates-container">
                 <div class="cert-card">
-                    <div class="cert-title">金融相关资质</div>
-                    <ul>
-                        <li>基金从业资格</li>
-                        <li>证券从业资格</li>
-                        <li>银行中级从业资格</li>
-                        <li>中级经济师（金融）</li>
-                        <li>腾讯课堂"互金产品设计提升班"认证</li>
-                    </ul>
+                    <div class="cert-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>金融相关资质</h3>
+                        <ul class="cert-list">
+                            <li>基金从业资格</li>
+                            <li>证券从业资格</li>
+                            <li>银行中级从业资格</li>
+                            <li>中级经济师（金融）</li>
+                            <li>腾讯课堂"互金产品设计提升班"认证</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="cert-card">
-                    <div class="cert-title">互联网相关</div>
-                    <ul>
-                        <li>PCEP国际Python程序员认证</li>
-                        <li>CAIP人工智能职场应用师</li>
-                        <li>C语言二级</li>
-                        <li>网络编辑二级</li>
-                        <li>人人都是产品经理社区-专栏作家</li>
-                    </ul>
+                    <div class="cert-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>互联网相关认证</h3>
+                        <ul class="cert-list">
+                            <li>PCEP国际Python程序员认证</li>
+                            <li>CAIP人工智能职场应用师</li>
+                            <li>C语言二级</li>
+                            <li>网络编辑二级</li>
+                            <li>人人都是产品经理社区-专栏作家</li>
+                            <li>腾讯＆起点学院2018运营总监培训</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="cert-card">
-                    <div class="cert-title">发明专利</div>
-                    <p><strong>个体属性挂载及群体属性分层大数据授信应用装置</strong></p>
-                    <p>金融风控领域，专利号CN117709963A</p>
+                    <div class="cert-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>专利与知识产权</h3>
+                        <ul class="cert-list">
+                            <li>发明专利：个体属性挂载及群体属性分层大数据授信应用装置（专利号CN117709963A）</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 联系方式 -->
-        <section id="contact">
-            <h2><i class="fas fa-envelope"></i> 联系方式</h2>
-            
-            <div class="contact-methods">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <h3>电话</h3>
-                    <p>18557519167</p>
+    <!-- 联系方式 -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>联系方式</h2>
+                <p>期待与您的交流与合作机会</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">您的姓名</label>
+                            <input type="text" id="name" class="form-control" placeholder="请输入姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">电子邮箱</label>
+                            <input type="email" id="email" class="form-control" placeholder="请输入邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">主题</label>
+                            <input type="text" id="subject" class="form-control" placeholder="请输入主题">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言内容</label>
+                            <textarea id="message" class="form-control" placeholder="请输入您的留言"></textarea>
+                        </div>
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> 发送消息</button>
+                    </form>
                 </div>
                 
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
+                <div class="contact-info-card">
+                    <h3>联系信息</h3>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>电话</h4>
+                                <p>18557519167</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>邮箱</h4>
+                                <p>shenwansan2008@163.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>地址</h4>
+                                <p>浙江省杭州市</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-weixin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>微信公众号</h4>
+                                <p>云洲说（专注互联网、金融科技）</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>邮箱</h3>
-                    <p>shenwansan2008@163.com</p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-weixin"></i>
+                    <div class="qr-code">
+                        <img src="https://s21.ax1x.com/2025/06/16/pVE9r4J.jpg" alt="微信公众号二维码">
                     </div>
-                    <h3>个人微信号</h3>
-                    <p>shenwansan2008</p>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>所在地</h3>
-                    <p>浙江省杭州市</p>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- 页脚 -->
     <footer>
-        <p>© 2025 王伟（云洲）- 互联网产品运营专家|杭州高层次人才</p>
-        <p>感谢您的关注，期待与您合作！</p>
+        <div class="container">
+            <div class="footer-content">
+                <h3>王伟 · 互联网金融科技运营专家</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 王伟（云洲）. 保留所有权利
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // 更新活动导航链接
+                document.querySelectorAll('.nav-links li a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // 导航链接活动状态
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('.nav-links li a');
+            
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 100;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+                
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
