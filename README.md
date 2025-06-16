@@ -790,7 +790,7 @@
         <div class="tech-pattern"></div>
         <div class="container hero-content">
             <div class="hero-text">
-                <h1 class="hero-title">互联网金融科技运营总监</h1>
+                <h1 class="hero-title">互联网金融运营总监</h1>
                 <h2 class="hero-subtitle">前阿里巴巴/蚂蚁集团资深产品运营专家</h2>
                 <p class="hero-description">
                     南大硕士，10年+金融科技/O2O电商背景，2家上市公司及一线大厂产品运营经验。拥有体系化的产品运营管理方法论，擅长用户增长运营、产品运营、流量运营、团队及项目管理。
@@ -1139,7 +1139,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2025 王伟（云洲）- 金融科技运营专家|杭州高层次人才</p>
+            <p>© 2025 王伟（云洲）- 金融科技产品运营专家 | 公众号“云洲说”主理人 | 杭州高层次人才</p>
             <p>本网站仅用于个人展示，保留所有权利</p>
         </div>
     </footer>
