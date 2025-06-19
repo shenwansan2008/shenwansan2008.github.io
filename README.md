@@ -1130,7 +1130,7 @@
                 <h3 class="contact-title">公众号</h3>
                 <p class="contact-detail">云洲说（专注互联网、金融科技）</p>
                 <div class="qr-code">
-                    <img src="https://23qn.f2z.cn/srnKSt" alt="公众号二维码">
+                    <img src="https://raw.githubusercontent.com/yunzhou2088/yunzhou2088.github.io/3a9d51e50ab59e8f610075af524fe44b1ae148fc/%E4%BA%91%E6%B4%B2%E8%AF%B4%E4%BA%8C%E7%BB%B4%E7%A0%81.jpg" alt="公众号二维码">
                 </div>
             </div>
         </div>
